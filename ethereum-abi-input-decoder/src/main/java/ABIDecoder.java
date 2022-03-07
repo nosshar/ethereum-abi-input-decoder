@@ -28,6 +28,16 @@ public class ABIDecoder {
         return result;
     }
 
+    public List<String> runToArray(String paramTypes, String paramInput) {
+        parseParamTypes(paramTypes);
+        parseParamInput(paramInput);
+        results = new ArrayList<String>();
+
+        decode();
+
+        return results;
+    }
+
     public void parseParamTypes(String paramTypes) {
         paramTypes = paramTypes.replaceAll("[() ]", "");
         String[] data = paramTypes.split(",");
